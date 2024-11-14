@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Wastewater Management</h1>
+    <p class="lead">Manage and track wastewater test results efficiently with our system.</p>
+    <hr class="my-4">
+    <p>Sign in or register to begin tracking results.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+    <a class="btn btn-success btn-lg" href="{{ url_for('register') }}" role="button">Register</a>
+</div>
+{% endblock %}

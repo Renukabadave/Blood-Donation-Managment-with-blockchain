@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Your existing styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Water Test Result</h1>
+        <form method="post">
+            <label for="ph_untreated">pH (Untreated):</label>
+            <input type="text" id="ph_untreated" name="ph_untreated" value="{{ result[1] }}" required>
+
+            <label for="ph_treated">pH (Treated):</label>
+            <input type="text" id="ph_treated" name="ph_treated" value="{{ result[2] }}" required>
+
+            <label for="chloride_untreated">Chloride (Untreated):</label>
+            <input type="text" id="chloride_untreated" name="chloride_untreated" value="{{ result[3] }}" required>
+
+            <label for="chloride_treated">Chloride (Treated):</label>
+            <input type="text" id="chloride_treated" name="chloride_treated" value="{{ result[4] }}" required>
+
+            <label for="solid_untreated">Dissolved Solid (Untreated):</label>
+            <input type="text" id="solid_untreated" name="solid_untreated" value="{{ result[5] }}" required>
+
+            <label for="solid_treated">Dissolved Solid (Treated):</label>
+            <input type="text" id="solid_treated" name="solid_treated" value="{{ result[6] }}" required>
+
+            <label for="nitrogen_untreated">Nitrogen (Untreated):</label>
+            <input type="text" id="nitrogen_untreated" name="nitrogen_untreated" value="{{ result[7] }}" required>
+
+            <label for="nitrogen_treated">Nitrogen (Treated):</label>
+            <input type="text" id="nitrogen_treated" name="nitrogen_treated" value="{{ result[8] }}" required>
+
+            <label for="bod_untreated">BOD (Untreated):</label>
+            <input type="text" id="bod_untreated" name="bod_untreated" value="{{ result[9] }}" required>
+
+            <label for="bod_treated">BOD (Treated):</label>
+            <input type="text" id="bod_treated" name="bod_treated" value="{{ result[10] }}" required>
+
+            <label for="oxygen_untreated">Dissolved Oxygen (Untreated):</label>
+            <input type="text" id="oxygen_untreated" name="oxygen_untreated" value="{{ result[11] }}" required>
+
+            <label for="oxygen_treated">Dissolved Oxygen (Treated):</label>
+            <input type="text" id="oxygen_treated" name="oxygen_treated" value="{{ result[12] }}" required>
+
+            <button type="submit">Update Result</button>
+        </form>
+        <a href="{{ url_for('show_results') }}"><button>Back to Results</button></a>
+    </div>
+</body>
+</html>

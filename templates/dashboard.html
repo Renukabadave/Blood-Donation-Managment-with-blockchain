@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+    <h2>Dashboard</h2>
+    <a href="{{ url_for('add_results') }}" class="btn btn-primary btn-lg m-2">Add Results</a>
+    <a href="{{ url_for('show_results') }}" class="btn btn-secondary btn-lg m-2">Show Results</a>
+</div>
+{% endblock %}

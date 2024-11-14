@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .fixed-header thead {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Water Test Results</h1>
+        <div class="table-container">
+            <table class="fixed-header">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>pH (Untreated)</th>
+                        <th>pH (Treated)</th>
+                        <th>Chloride (Untreated)</th>
+                        <th>Chloride (Treated)</th>
+                        <th>Dissolved Solid (Untreated)</th>
+                        <th>Dissolved Solid (Treated)</th>
+                        <th>Nitrogen (Untreated)</th>
+                        <th>Nitrogen (Treated)</th>
+                        <th>BOD (Untreated)</th>
+                        <th>BOD (Treated)</th>
+                        <th>Dissolved Oxygen (Untreated)</th>
+                        <th>Dissolved Oxygen (Treated)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in results %}
+                    <tr>
+                        <td>{{ result[0] }}</td>
+                        <td>{{ result[1] }}</td>
+                        <td>{{ result[2] }}</td>
+                        <td>{{ result[3] }}</td>
+                        <td>{{ result[4] }}</td>
+                        <td>{{ result[5] }}</td>
+                        <td>{{ result[6] }}</td>
+                        <td>{{ result[7] }}</td>
+                        <td>{{ result[8] }}</td>
+                        <td>{{ result[9] }}</td>
+                        <td>{{ result[10] }}</td>
+                        <td>{{ result[11] }}</td>
+                        <td>{{ result[12] }}</td>
+                        <td>
+                            <a href="{{ url_for('edit_result', result_id=result[0]) }}">Edit</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="{{ url_for('dashboard') }}"><button>Back to Dashboard</button></a>
+    </div>
+</body>
+</html>
